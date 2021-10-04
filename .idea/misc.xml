@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Crypto Market/app/src/main/res/drawable/button_background.xml" value="0.25462962962962965" />
+        <entry key="..\:/Crypto Market/app/src/main/res/drawable/splashscreen.xml" value="0.2109375" />
+        <entry key="..\:/Crypto Market/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Crypto Market/app/src/main/res/layout/activity_main.xml" value="0.22282608695652173" />
+        <entry key="..\:/Crypto Market/app/src/main/res/layout/fragment_login_options.xml" value="0.1956521739130435" />
       </map>
     </option>
   </component>
