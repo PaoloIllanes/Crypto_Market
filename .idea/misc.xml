@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/button_background.xml" value="0.20615384615384616" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13072916666666667" />
@@ -23,7 +24,7 @@
         <entry key="app/src/main/res/layout/fragment_wallet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/list_item_feed.xml" value="0.13072916666666667" />
         <entry key="app/src/main/res/layout/list_item_news.xml" value="0.13072916666666667" />
-        <entry key="app/src/main/res/layout/list_item_wallet.xml" value="0.36174132170291584" />
+        <entry key="app/src/main/res/layout/list_item_wallet.xml" value="0.20930232558139536" />
       </map>
     </option>
   </component>
