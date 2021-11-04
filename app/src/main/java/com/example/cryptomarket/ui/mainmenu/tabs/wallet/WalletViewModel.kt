@@ -34,4 +34,8 @@ class WalletViewModel: ViewModel() {
         }.launchIn(scope)
     }
 
+    fun addCoin(context: Context){
+
+    }
+
 }

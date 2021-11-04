@@ -16,8 +16,12 @@ class FeedRepository(val network: FeedNetworkController, val persistency: FeedPe
             try{
                 if(isNetworkConnected(context)){
                     val coins = network.getAllCoins()
-                    persistency.saveCoin(coins)
-                    emit(coins)
+
+                        persistency.saveCoin(coins)
+
+
+                        emit(coins)
+
                 }
             }catch (e:Exception){}
         }

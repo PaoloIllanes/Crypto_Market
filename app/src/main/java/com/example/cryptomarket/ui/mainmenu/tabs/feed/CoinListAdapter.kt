@@ -1,5 +1,6 @@
 package com.example.cryptomarket.ui.mainmenu.tabs.feed
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -7,10 +8,15 @@ import com.example.cryptomarket.model.Coin
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.cryptomarket.R
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
+import retrofit2.http.Url
+import java.net.URL
+import java.net.URLEncoder
 
 
 class CoinListAdapter:RecyclerView.Adapter<FeedListViewHolder>()  {
@@ -56,12 +62,24 @@ class FeedListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val coinVal = itemView.findViewById<TextView>(R.id.coinval)
 
     fun bind(coin: Coin) {
-        Glide.with(itemView)
-            .load(coin.imageUrl)
-            .transform(CenterCrop(),RoundedCorners(24))
-            .into(logo)
-        coinName.text = coin.coinName
-        coinDesc.text = coin.shortDescription
+
+        GlideToVectorYou
+            .init()
+            .with(logo.context)
+            .load(coin.logo_url.toUri(), logo);
+
+//        GlideToVectorYou
+//            .init()
+//            .with(this)
+//            .load( coin.imageUrl.toUri(), imageview);
+
+//        Glide.with(itemView)
+//            .load(coin.imageUrl)
+//            .transform(CenterCrop(),RoundedCorners(24))
+//            .into(logo)
+        coinName.text = coin.name
+        coinDesc.text = coin.id
         coinVal.text = "${coin.price} $"
+
     }
 }

@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.cryptomarket.databinding.FragmentDepositBinding
+import com.example.cryptomarket.databinding.FragmentWalletBinding
 import com.example.cryptomarket.model.Coin
+import com.example.cryptomarket.ui.mainmenu.tabs.wallet.fragments.WalletFragment
 
 
 class DepositFragment: Fragment() {
@@ -15,6 +17,8 @@ class DepositFragment: Fragment() {
     private lateinit var coins: Coin
     private val arg: CoinDetailsFragmentArgs by navArgs()
     private lateinit var binding: FragmentDepositBinding
+
+
 
 
 
@@ -28,6 +32,9 @@ class DepositFragment: Fragment() {
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.button3.setOnClickListener(){
+
+        }
 //
 
 

@@ -1,5 +1,6 @@
 package com.example.cryptomarket.ui.mainmenu.tabs.feed.fragments
 
+import WalletListAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,9 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.cryptomarket.R
 import com.example.cryptomarket.databinding.FragmentCoinDetailsBinding
+import com.example.cryptomarket.databinding.FragmentWalletBinding
 import com.example.cryptomarket.model.Coin
+import com.example.cryptomarket.model.OwnedCoin
 
 class CoinDetailsFragment: Fragment() {
 
@@ -34,6 +37,9 @@ class CoinDetailsFragment: Fragment() {
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+
         coins = arg.coin
 
         val logos = view.findViewById<ImageView>(R.id.logocoin)
@@ -44,11 +50,11 @@ class CoinDetailsFragment: Fragment() {
 
 
 
-        Glide.with(view).load(coins.imageUrl).transform(CenterCrop(), RoundedCorners(2))
+        Glide.with(view).load(coins.logo_url).transform(CenterCrop(), RoundedCorners(2))
             .into(logos)
-        logoname.text = coins.coinName
-        logosub.text = coins.shortDescription
-        logoprice.text = coins.price.toString()
+        logoname.text = coins.name
+        logosub.text = coins.id
+        logoprice.text = coins.price
 
 
     }

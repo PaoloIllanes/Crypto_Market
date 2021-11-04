@@ -165,18 +165,18 @@ app.get('/feed', function (req, res) {
 app.get('/wallet', function (req, res) {
   res.send([
   {"coin":{
-  "coinName":
+  "name":
             "Ethereum",
-            "shortDescription":"ETH",
-            "imageUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1257px-Ethereum_logo_2014.svg.png",
+            "id":"ETH",
+            "logo_url":"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1257px-Ethereum_logo_2014.svg.png",
             "price":200.3
   },"qty":3.3
   },
   {"coin":{
-    "coinName":
+    "name":
               "DOGECOIN",
-            "shortDescription":"DOGE",
-            "imageUrl":"https://www.seekpng.com/png/detail/308-3087811_dogecoin-logo-png-transparent-dogecoin.png",
+            "id":"DOGE",
+            "logo_url":"https://www.seekpng.com/png/detail/308-3087811_dogecoin-logo-png-transparent-dogecoin.png",
             "price":1500.3
     },"qty":50
     }

@@ -1,4 +1,3 @@
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -7,14 +6,21 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 
 import com.example.cryptomarket.databinding.ListItemWalletBinding
-import com.example.cryptomarket.model.FirebaseCoin
 import com.example.cryptomarket.model.OwnedCoin
 
-class WalletListAdapter(val cryptoList: ArrayList<FirebaseCoin>, val context: Context) :
-    RecyclerView.Adapter<WalletListAdapter.WalletListViewHolder>() {
+class WalletListAdapter:RecyclerView.Adapter<WalletListViewHolder>(){
+    val elementList: MutableList<OwnedCoin> = mutableListOf()
 
-    class WalletListViewHolder(val binding: ListItemWalletBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    fun addAll(newElementList: List<OwnedCoin>) {
+        elementList.clear()
+        elementList.addAll(newElementList)
+        notifyDataSetChanged()
+    }
+
+    fun add(newElement: OwnedCoin){
+        elementList.add(newElement)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WalletListViewHolder {
         val binding =
@@ -24,16 +30,27 @@ class WalletListAdapter(val cryptoList: ArrayList<FirebaseCoin>, val context: Co
 
 
     override fun onBindViewHolder(holder: WalletListViewHolder, position: Int) {
-        val coin = cryptoList[position]
-        with(holder) {
-            binding.walletname.text = coin.name
-            binding.walletval.text = "${coin.available}"
-            Glide.with(holder.itemView).load(coin.imageUrl).into(binding.walletlogo)
-        }
+        holder.bind(elementList[position])
+
     }
 
     override fun getItemCount(): Int {
-        return cryptoList.size
+        return elementList.size
 
+    }
+}
+
+class WalletListViewHolder(val binding: ListItemWalletBinding):
+RecyclerView.ViewHolder(binding.root) {
+
+
+    fun bind(ownedCoin: OwnedCoin) {
+        Glide.with(itemView)
+            .load(ownedCoin.coin.logo_url)
+            .transform(CenterCrop(),RoundedCorners(24))
+            .into(binding.walletlogo)
+        binding.walletname.text = ownedCoin.coin.name
+        binding.walletshort.text = "${ownedCoin.coin.price} USD"
+        binding.walletval.text = "${ownedCoin.qty}"
     }
 }
